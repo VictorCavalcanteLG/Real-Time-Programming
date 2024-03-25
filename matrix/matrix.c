@@ -227,6 +227,25 @@ double determinant(Matrix *matrix) {
     return det;
 }
 
+Matrix *create_identity_matrix(int dim) {
+    double data[dim][dim];
+
+    int one_position = 0;
+
+    for (int i = 0; i < dim; i++) {
+        for (int j = 0; j < dim; j++) {
+            if (i == one_position && j == one_position) {
+                data[i][j] = 1;
+                one_position++;
+            } else{
+                data[i][j] = 0;
+            }
+        }
+    }
+
+    return create_matrix(dim, dim, data);
+}
+
 void print_matrix(Matrix *matrix) {
     printf("[\n");
     for (int i = 0; i < matrix->rows; ++i) {

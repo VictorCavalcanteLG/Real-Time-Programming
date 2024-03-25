@@ -22,6 +22,7 @@ Matrix *scalar_multiply(Matrix *matrix, double scalar);
 Matrix *transpose(Matrix *matrix);
 double determinant(Matrix *matrix);
 Matrix *inverse(Matrix *matrix);
+Matrix *create_identity_matrix(int dim);
 
 void print_matrix(Matrix *matrix);
 

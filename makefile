@@ -1,3 +1,5 @@
+OUTPUT_FILE = output.txt
+
 all: clean compile_dstring run_dstring compile_matrix run_matrix compile_integral run_integral clean
 
 compile_dstring:
@@ -7,7 +9,7 @@ run_dstring:
 	./dstring_main
 
 compile_matrix:
-	gcc -std=c17 -o matrix_main matrix_main.c ./matrix/matrix.c
+	gcc -std=c17 -o matrix_main matrix_main.c ./matrix/matrix.c -lm
 
 run_matrix:
 	./matrix_main
@@ -17,6 +19,15 @@ compile_integral:
 
 run_integral:
 	./integral_main
+
+compile_simulate:
+	gcc -o main main.c ./simulate/simulate.c ./integral/integral.c ./matrix/matrix.c ./dstring/dstring.c -lm
+
+run_simulate:
+	./main
+
+generate_outputs:
+	./main > $(OUTPUT_FILE)
 
 clean:
 	rm -f dstring_main
