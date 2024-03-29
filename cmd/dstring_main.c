@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "dstring/dstring.h"
+#include "../adt/dstring/dstring.h"
 
 int main(int argc, char **argv) {
     puts("Test ADT Dstr");

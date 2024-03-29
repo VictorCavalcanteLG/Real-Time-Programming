@@ -1,5 +1,7 @@
-#include "matrix/matrix.h"
 #include <stdio.h>
+
+#include "../adt/matrix/matrix.h"
+
 
 int main() {
     puts("Test ADT Matrix");

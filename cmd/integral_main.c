@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "integral/integral.h"
+#include "../adt/integral/integral.h"
 
 double func1(double x) {
     return x*x*x + 2*x + 1 ;

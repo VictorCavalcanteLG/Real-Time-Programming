@@ -1,8 +1,8 @@
-#include "simulate.h"
+#include "simulation.h"
 
-#include "../integral/integral.h"
-#include "../matrix/matrix.h"
-#include "../dstring/dstring.h"
+#include "../adt/integral/integral.h"
+#include "../adt/matrix/matrix.h"
+#include "../adt/dstring/dstring.h"
 
 double constant;
 
@@ -27,6 +27,7 @@ Dstr *matrix_to_dstring(Matrix *m) {
 void print_outputs(int t, Matrix *u_matrix, Matrix *y_matrix) {
     printf("%d\t%s\t%s\n", t, matrix_to_dstring(u_matrix)->buf, matrix_to_dstring(y_matrix)->buf);
 }
+
 
 void simulate(int t, Matrix *b_matrix, Matrix *u_matrix) {
     Matrix *dx_matrix = multiply_matrices(b_matrix, u_matrix);
