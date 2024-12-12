@@ -21,7 +21,7 @@ run_integral:
 	./integral_main
 
 compile_simulate:
-	gcc -std=c17 -o main main.c ./simulation/simulation_facade.c ./simulation/simulation.c ./adt/integral/integral.c ./adt/matrix/matrix.c ./adt/dstring/dstring.c -lm
+	gcc -std=c17 -o main main.c ./simulation/simulation_facade.c ./simulation/simulation.c ./adt/integral/integral.c ./adt/matrix/matrix.c ./adt/dstring/dstring.c -lpthread -lm
 
 run_simulate:
 	./main

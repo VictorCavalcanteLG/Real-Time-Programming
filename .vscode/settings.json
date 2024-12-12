@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "math.h": "c",
-        "integral.h": "c"
+        "integral.h": "c",
+        "cmath": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

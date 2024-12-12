@@ -9,8 +9,11 @@
 #include "../adt/dstring/dstring.h"
 
 // typedef double (*Function)(int);
+extern double sim_period, yf_period;
 
 // Methods
-void simulate(int t, Matrix *u_data, Matrix *u_matrix);
+Matrix *simulate(double t, Matrix *u_data, Matrix *u_matrix);
+Matrix *generate_yf(double t, Matrix *b_matrix, Matrix *u_matrix);
+void print_outputs(double t, Matrix *u_matrix, Matrix *y_matrix);
 
 #endif
