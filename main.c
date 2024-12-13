@@ -25,7 +25,6 @@ Matrix *u_t(double t) {
 
 Matrix *b_t(double w, double t) {
     t = t / 1000;
-    // printf("%f\t%f\t%f\n", t, w, sin(w * t));
     double dataB[3][2] = {{sin(w * t), 0}, {cos(w * t), 0}, {0, 1}};
     Matrix *b_matrix = create_matrix(3, 2, dataB);
 }

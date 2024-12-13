@@ -1,6 +1,7 @@
 #include "matrix.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 // Constructor
 Matrix *create_matrix(int rows, int cols, double data[][cols]) {
@@ -226,6 +227,38 @@ double determinant(Matrix *matrix) {
 
     return det;
 }
+
+Matrix *invert_matrix_2x2(Matrix *matrix) {
+    // Verifica se a matriz é 2x2
+    if (matrix->rows != 2 || matrix->cols != 2) {
+        fprintf(stderr, "Erro: A matriz não é 2x2.\n");
+        return NULL;
+    }
+
+    // Calcula o determinante
+    double det = determinant(matrix);
+    if (fabs(det) < 1e-9) {
+        fprintf(stderr, "Erro: A matriz é singular e não pode ser invertida.\n");
+        return NULL;
+    }
+
+    double data_inverse[2][2] = {{0, 0}, {0, 0}};
+    // Aloca a matriz inversa
+    Matrix *inverse = create_matrix(2, 2, data_inverse);
+    if (inverse == NULL) {
+        fprintf(stderr, "Erro: Falha ao alocar matriz inversa.\n");
+        return NULL;
+    }
+
+    // Calcula a matriz inversa
+    inverse->data[0][0] = matrix->data[1][1] / det;
+    inverse->data[0][1] = -matrix->data[0][1] / det;
+    inverse->data[1][0] = -matrix->data[1][0] / det;
+    inverse->data[1][1] = matrix->data[0][0] / det;
+
+    return inverse;
+}
+
 
 Matrix *create_identity_matrix(int dim) {
     double data[dim][dim];

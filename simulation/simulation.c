@@ -4,13 +4,13 @@
 #include "../adt/matrix/matrix.h"
 #include "../adt/dstring/dstring.h"
 
-double constant;
+// double constant;
 
 #define D 0.5
 
-double integrate_function(double x) {
-    return constant;
-}
+// double integrate_function(double x) {
+//     return constant;
+// }
 
 Dstr *matrix_to_dstring(Matrix *m) {
     Dstr *str_matrix = newDstr_char('[');
@@ -31,30 +31,30 @@ void print_outputs(double t, Matrix *u_matrix, Matrix *y_matrix) {
 }
 
 
-Matrix *simulate(double t, Matrix *b_matrix, Matrix *u_matrix) {
-    Matrix *dx_matrix = multiply_matrices(b_matrix, u_matrix);
+// Matrix *simulate(double t, Matrix *b_matrix, Matrix *u_matrix) {
+//     Matrix *dx_matrix = multiply_matrices(b_matrix, u_matrix);
 
-    double x_data[dx_matrix->rows][dx_matrix->cols];
+//     double x_data[dx_matrix->rows][dx_matrix->cols];
 
-    for (int i = 0; i < dx_matrix->rows; i++) {
-        for (int j = 0; j < dx_matrix->cols; j++) {
-            constant = dx_matrix->data[i][j];
-            x_data[i][j] = midpoint_riemann_sum(integrate_function, t - sim_period, t, 20);
-        }
-    }
+//     for (int i = 0; i < dx_matrix->rows; i++) {
+//         for (int j = 0; j < dx_matrix->cols; j++) {
+//             constant = dx_matrix->data[i][j];
+//             x_data[i][j] = midpoint_riemann_sum(integrate_function, t - sim_period, t, 20);
+//         }
+//     }
 
-    Matrix *x_matrix = create_matrix(dx_matrix->rows, dx_matrix->cols, x_data);
+//     Matrix *x_matrix = create_matrix(dx_matrix->rows, dx_matrix->cols, x_data);
 
-    Matrix *identity_matrix = create_identity_matrix(x_matrix->rows); 
+//     Matrix *identity_matrix = create_identity_matrix(x_matrix->rows); 
 
-    Matrix *y_matrix = multiply_matrices(identity_matrix, x_matrix);
+//     Matrix *y_matrix = multiply_matrices(identity_matrix, x_matrix);
 
-    destroy_matrix(dx_matrix);
-    destroy_matrix(x_matrix);
-    destroy_matrix(identity_matrix);
+//     destroy_matrix(dx_matrix);
+//     destroy_matrix(x_matrix);
+//     destroy_matrix(identity_matrix);
     
-    return y_matrix;
-}
+//     return y_matrix;
+// }
 
 Matrix *submatrix(double w, int t) {
     double submatrix_data[3][3] = {
@@ -67,30 +67,30 @@ Matrix *submatrix(double w, int t) {
 }
 
 
-Matrix *generate_yf(double t, Matrix *b_matrix, Matrix *u_matrix) {
-    Matrix *dx_matrix = multiply_matrices(b_matrix, u_matrix);
+// Matrix *generate_yf(double t, Matrix *b_matrix, Matrix *u_matrix) {
+//     Matrix *dx_matrix = multiply_matrices(b_matrix, u_matrix);
 
-    double x_data[dx_matrix->rows][dx_matrix->cols];
+//     double x_data[dx_matrix->rows][dx_matrix->cols];
 
-    for (int i = 0; i < dx_matrix->rows; i++) {
-        for (int j = 0; j < dx_matrix->cols; j++) {
-            constant = dx_matrix->data[i][j];
-            x_data[i][j] = midpoint_riemann_sum(integrate_function, t - yf_period, t, 10);
-        }
-    }
+//     for (int i = 0; i < dx_matrix->rows; i++) {
+//         for (int j = 0; j < dx_matrix->cols; j++) {
+//             constant = dx_matrix->data[i][j];
+//             x_data[i][j] = midpoint_riemann_sum(integrate_function, t - yf_period, t, 10);
+//         }
+//     }
 
-    Matrix *x_matrix = create_matrix(dx_matrix->rows, dx_matrix->cols, x_data);
+//     Matrix *x_matrix = create_matrix(dx_matrix->rows, dx_matrix->cols, x_data);
 
-    Matrix *subm = submatrix(u_matrix->data[1][0], t);
+//     Matrix *subm = submatrix(u_matrix->data[1][0], t);
 
-    Matrix *subm_x = multiply_matrices(subm, x_matrix);
+//     Matrix *subm_x = multiply_matrices(subm, x_matrix);
 
-    Matrix *y_f_matrix = add_matrices(x_matrix, subm_x);
+//     Matrix *y_f_matrix = add_matrices(x_matrix, subm_x);
 
-    destroy_matrix(dx_matrix);
-    destroy_matrix(x_matrix);
-    destroy_matrix(subm);
-    destroy_matrix(subm_x);
+//     destroy_matrix(dx_matrix);
+//     destroy_matrix(x_matrix);
+//     destroy_matrix(subm);
+//     destroy_matrix(subm_x);
 
-    return y_f_matrix;
-}
+//     return y_f_matrix;
+// }

@@ -10,5 +10,6 @@ typedef Matrix *(*Function_b)(double, double);
 
 // Methods
 int start_simulation(int simulation_time, Function_u u_t, Function_b b_t);
+double thetaFunc(double t);
 
 #endif
