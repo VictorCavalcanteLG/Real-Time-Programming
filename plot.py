@@ -65,7 +65,7 @@ def plot_simulation_results(data: pd.DataFrame):
 # Exemplo de uso:
 # Salve os resultados da simulação em um arquivo como "simulation_results.txt"
 # Altere o caminho abaixo para o local do arquivo gerado pela simulação
-file_path = "output_lab4.txt"
+file_path = "output_lab4_new.txt"
 # Aqui seria necessário carregar os dados de teste simulados.
 # A execução real deste código exigiria que você forneça um arquivo correto.
 # Quando estiver pronto, basta substituir o caminho pelo local correto do arquivo.

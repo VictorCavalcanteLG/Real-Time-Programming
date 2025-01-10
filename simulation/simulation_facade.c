@@ -125,7 +125,8 @@ void *robot_simulation(void *args) {
                     // printf("u: %s\n", matrix_to_dstring(shared_data->u)->buf);
                     // printf("v: %s\n", matrix_to_dstring(shared_data->v)->buf);
                     // printf("y: %s\n\n", matrix_to_dstring(shared_data->y)->buf);
-                    print_outputs(t, shared_data->u, shared_data->x);
+                    // print_outputs(t, shared_data->u, shared_data->x);
+                    printf("%d\t%.6f\t%.6f\n", t, shared_data->xref, shared_data->yref);
                 }
             pthread_mutex_unlock(&shared_data->lock);
         }
